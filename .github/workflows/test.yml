@@ -15,10 +15,14 @@ jobs:
           npm install
       - run: |
           npm run all
-  test: # make sure the action works on a clean machine without building
+  
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: echo "Start action at $(date)"
       - uses: ./
+        id: me
         with:
-          milliseconds: 1000
+          milliseconds: 15000
+      - run: echo "Time from action ${{ steps.me.time }}"
