@@ -25,4 +25,4 @@ jobs:
         id: me
         with:
           milliseconds: 15000
-      - run: echo "Time from action ${{ steps.me.time }}"
+      - run: echo "Time from action ${{ steps.me.outputs.time }}"
