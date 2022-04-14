@@ -18,7 +18,7 @@ jobs:
       - name: Create a pull request if files in dist have changed
         uses: peter-evans/create-pull-request@v4.0.2
         with:
-          path: dist/*
+          path: dist/index.js
   
   test:
     runs-on: ubuntu-latest
