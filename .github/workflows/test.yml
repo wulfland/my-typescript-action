@@ -15,9 +15,14 @@ jobs:
           npm install
       - run: |
           npm run all
+      - name: Create a pull request if files in dist have changed
+        uses: peter-evans/create-pull-request@v4.0.2
+        with:
+          path: dist/*
   
   test:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - uses: actions/checkout@v2
       - run: echo "Start action at $(date)"
